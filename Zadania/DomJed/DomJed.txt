@@ -1,0 +1,6 @@
+Dominujace Jedynki
+mamy string dlugosci n zlozony z 0 i 1
+co ture kazde 0 sasiadujace z 1 zamienia sie w 1
+trzeba obliczyc ile tur zajmie zamienienie kazdego 0 w 1
+w zasadzie trzeba obliczyc najdluzszy podciag i podzielic na 2 (zaokraglajac w gore)
+jednak jesli na koncu tego podciagu bedzie 0 a nie 1 to wtedy nie dzielimy na 2 a wypisujemy dlugosc podciagu

@@ -1,0 +1,4 @@
+Rozszerzony Algorytm Euklidesa
+w skrocie mamy liczby a i b i chcemy obliczyc
+NWD(a, b) = a ⋅ x + b ⋅ y
+poprzez lekka modyfikacje normalnego algorytmu Euklidesa

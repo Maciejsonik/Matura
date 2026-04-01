@@ -1,0 +1,3 @@
+DNA:
+1. mamy string dlugosci n ktory zawiera litery A C G T i musimy sprawdzic ktorych jest najwiecej musimy wypisac najczesciej wystepujaca litere
+2. mamy 2 stringi o dlugosci n i sprawdzamy najdluzszy podciag gdzie s1[i] jest rowny s2[i] musimy wypisac dlugos tego ciagu

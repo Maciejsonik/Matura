@@ -1,0 +1,6 @@
+Kroliki
+Zmodyfikowany ciag fibbonaciego
+zaczynamy od 2 krolikow
+kroliki zaczynaja sie rozmnazac po 2 turach
+i kazdy krolik ma 2 potomstwa co ture po odczekaniu tych 2 tur wczesniej
+musimy wypisac ile krolikow bedzie w n turze

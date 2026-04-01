@@ -1,0 +1,4 @@
+Szczerze nie pamietam jak sie nazywalo zadanie
+Mamy tablice o rozmiarze n na n 
+tablica jest wypelniona zgodnie z zasadami trojkata pascala
+i musimy wypisac adres [x][y] z tej tabeli
