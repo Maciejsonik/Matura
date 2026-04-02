@@ -1,0 +1,26 @@
+Na izbie przyjęć chorzy pacjenci oczekują na przyjęcie z przejęciem patrząc na zegarek. 
+Ale to nie czas decyduje o kolejności. 
+Ważniejszy jest stan chorego. 
+Dlatego często na SORach oznacza się pacjentów opaskami w kolorach czerwonym, żółtym i zielonym. 
+Kolor czerwony oznacza, że pacjent musi być przyjęty w pierwszej kolejności - w trybie natychmiastowym. 
+Taki kolor przydzielany jest osobom w bardzo złym stanie, często przywiezionym przez karetki.
+Kolor żółty jest przydzielany pacjentom, którzy wymagają pilnej interwencji lekarza. 
+Kolorem zielonym są oznaczani pacjenci z najniższym stopniem zagrożenia życia, przyjmowani w trzeciej kolejności.
+Pan Integer opracował dokładniejszy sposób określania stanu pacjentów. 
+Wprowadził k kolorów opasek. 
+Jeśli mamy pacjentów z opaskami w kolorach i oraz j i wiemy, że i<j, to pacjent z opaską w kolorze i zostanie przyjęty jako pierwszy. 
+Dla pacjentów z tym samym kolorem opaski liczy się czas przyjęcia.
+Pan Integer wymyślił system, który ma przyśpieszyć pracę pobliskiej izby przyjęć i obserwuje teraz, jak działa on w rzeczywistości. 
+Co sekundę przychodzi nowy pacjent lub jeden z oczekujących pacjentów jest przyjmowany przez dyżurującego lekarza. 
+Pan Integer potrafi natychmiast sklasyfikować przybyłych (określić kolor ich opasek). 
+Nie nadąża jednak ze wskazywaniem pacjentów, którzy mają być w danym momencie obsłużeni. 
+Czy potrafisz napisać program, który pomoże mu w pracy?
+
+Wejście
+W pierwszej linii wejścia znajduje się jedna parzysta liczba całkowita n (1 ≤ n ≤ 2·106).
+W kolejnych n liniach znajduje się po jednej liczbie całkowitej ki oznaczającej kolor opaski pacjenta, który przyszedł w i-tej sekundzie (1 ≤ ki ≤ 109) lub informacja o przyjęciu w tym momencie kolejnej osoby przez lekarza (ki = −1).
+Możesz założyć, że zawsze jest ktoś, kto oczekuje pomocy i że wszyscy pacjenci zostaną kiedy obsłużeni. Możesz również założyć, że testach ocenianych na 30 punktów zachodzi warunek n ≤ 103.
+
+Wyjście
+Na wyjściu powinno znaleźć się n liczb całkowitych oznaczających kolejność przyjęcia pacjentów przez lekarza. 
+Pacjentów oznacz czasem przyjścia na izbę przyjęć.
