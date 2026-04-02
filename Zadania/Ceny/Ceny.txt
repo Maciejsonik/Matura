@@ -1,0 +1,3 @@
+Ceny w systemach dziesiętnym i dwójkowym
+Mamy podana cene w systemie dwojkowym (zmiennoprzecinkową z precyzja 2)
+i musimy podac cene w systemie dziesietnym
