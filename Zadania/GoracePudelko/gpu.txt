@@ -1,0 +1,22 @@
+Czarująca pani Char, przedszkolanka w przedszkolu Słoneczny Integer, lubi urządzać dla swoich podopiecznych różne zabawy. 
+Jedną z nowych zabaw, które pani Char zaproponowała dzieciom, jest zabawa w gorące pudełko. 
+Polega ona na tym, że pani Char wręcza pierwszemu dziecku kolorowe pudełko, ono podaje je drugiemu, drugie - trzeciemu, itd.. 
+Ostatnie dziecko podaje pudełko pierwszemu.
+W czasie zabawy gra muzyka. 
+Gdy melodia ucichnie, dziecko, które trzyma pudełko, dostaje pyszne ciasteczko i kończy zabawę. 
+Pani Char przerywa muzykę w różnych nieoczekiwanych dla dzieci momentach. 
+Pudełko porusza się raz w prawo, raz w lewo. 
+Zabawa trwa tak długo, aż zostanie tylko jedno dziecko - zwycięzca gry.
+Każdy z maluchów chciałby oczywiście wygrać zabawę. 
+Mały Bitek zauważył w pewnym momencie, że pani Char zawsze używa takiej samej sekwencji ruchów. 
+Zauważył też, że może wybrać takie miejsce wśród dzieci, które zapewni mu wygraną. 
+Zastanawia się teraz, które to miejsce. Pomożesz mu?
+
+Wejście
+W pierwszej linii wejścia znajduje się jedna liczba całkowita n (2 ≤ n ≤ 106), oznaczająca liczbę dzieci w przedszkolu.
+W kolejnych n-1 liniach wejścia znajduje się sekwencja ruchów wykonywanych przez panią Char, przy czym i-ty ruch opisany jest przez liczbę całkowitą xi (1 ≤ xi ≤ 100) oznaczającą liczbę przekazań przez dzieci pudełka, po których ucichnie muzyka. 
+Ruchy wykonywane są na przemian raz w prawo, raz w lewo, przy czym pierwszy ruch wykonywany jest zawsze w prawo.
+Dziecko, które odpadło, oddaje pudełko temu dziecku, od którego je otrzymało.
+
+Wyjście
+Na wyjściu powinna znaleźć się jedna liczba całkowita oznaczająca liczony od lewej numer miejsca, które powinien zająć mały Bitek, żeby wygrać zabawę.
