@@ -1,0 +1,5 @@
+Pasikoniki urządziły sobie zabawę w skakanie po liściach. 
+Mają do dyspozycji n kolejnych liści ponumerowanych od 1 do n. 
+Każdy pasikonik zaczyna od liścia numer 1 i dalej skacze o 1 lub 3 liście do przodu. 
+Zakładamy, że każdy pasikonik siadając na pierwszym liściu dotarł do niego na 1 sposób. 
+Jeśli pasikonik dotrze do liścia o numerze n w inny sposób niż pasikoniki skaczące przed nim (tzn., że co najmniej jeden numer odwiedzonego liścia jest inny), wygrywa i otrzymuje nagrodę.
