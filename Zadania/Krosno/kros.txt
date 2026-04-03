@@ -1,0 +1,4 @@
+Krosno
+Mamy tablice n liczb calkowitych oraz liczbe k.
+Trzeba sprawdzic, czy dla kazdego i od 1 do n-k zachodzi warunek: A[i] < A[i+k].
+Jesli warunek jest spelniony, wypisujemy TAK, w przeciwnym razie NIE.
