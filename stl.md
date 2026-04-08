@@ -75,19 +75,17 @@ abs(-3.9f); // -> 3.9f
 
 ## 2. Podstawowe struktury danych
 
-Poniższe opisy zawierają tekst, tabele z kluczowymi operacjami oraz przykładowy kod.  
-Konwencja argumentów:
+Poniższe opisy struktur składają się z tekstu, tabelek z kluczowymi (nie wszystkimi) operacjami i przykładowych kodów. Tabelki zawierają nazwy operacji, skrótowe opisy i złożoność obliczeniową. Typu wartości operacji nietrudno się domyślić, natomiast w kwestii argumentów przyjęta jest taka konwencja:
 
-- `v`: wartość typu przechowywanego w strukturze,
-- `k`: indeks (umownie np. `int`),
-- `i`: iterator.
+- `v`: wartość typu takiego, jaki jest trzymany w strukturze,
+- `k`: indeks - można przyjąć, że jest to `int`,
+- `i`: iterator (więcej o tym przy listach).
 
-Poza `pair` (przypadek zdegenerowany), wszystkie omawiane struktury mają:
+Pomijając `pair` - przypadek zdegenerowany - wszystkie wymienione niżej struktury udostępniają dodatkowo operację `clear()`, która odpowiada za usunięcie wszystkich elementów ze struktury (czas liniowy), oraz operację `empty()`, która określa w czasie stałym, czy struktura jest pusta. Oczywiście wszystkie złożoności obliczeniowe podawane są względem liczby elementów w strukturze.
 
-- `clear()` - usuwa wszystkie elementy (zwykle czas liniowy),
-- `empty()` - sprawdza, czy struktura jest pusta (czas stały).
+Ku przejrzystości przykładowego kodu (i aby zniechęcić do metody copy-paste bez pełnego zrozumienia) nie pojawiają się tu instrukcje wypisywania na wyjście. Zamiast nich użyte są wyrażenia zakończone średnikiem i opatrzone komentarzami określającymi ich wartości.
 
-Zakładamy, że przed użyciem kodu wpisano:
+Ponadto zakładamy, że przed miejscem użycia kodu wpisano:
 
 ```cpp
 using namespace std;
@@ -95,8 +93,7 @@ using namespace std;
 
 ### 2.1 `pair`
 
-Obiekt `pair` przechowuje dwa elementy: `first` i `second`.  
-Funkcja `make_pair` tworzy parę.
+Obiekt `pair` przechowuje dwa elementy - `first` i `second` (dostępne wprost). Funkcja `make_pair` tworzy odpowiednią parę. Oczywiście można też skorzystać ze standardowego konstruktora.
 
 ```cpp
 #include <utility>
@@ -116,7 +113,7 @@ pow(para.first, para.second); // -> 1024.0f
 
 ### 2.2 `stack`
 
-`stack` to stos: dodawanie i zdejmowanie z wierzchu.
+Struktura `stack` to STL-owy stos. Można dokładać elementy na wierzch, oglądać wierzch i z niego zdejmować, ale żeby nagle dostać się gdzieś do środka, trzeba się na ogół nieźle napracować.
 
 | Operacja | Opis | Złożoność |
 |---|---|---|
@@ -143,7 +140,7 @@ while (!stos.empty()) {
 
 ### 2.3 `queue`
 
-`queue` to kolejka FIFO.
+Struktura `queue` odpowiada kolejce (takiej typowej, jak w sklepiku po pączki). Można więc wstawić element na koniec, zrzucić z początku i obejrzeć ten na początku i ten na końcu. Jednak, tak jak poprzednio, nie tak łatwo dostać się do środka.
 
 | Operacja | Opis | Złożoność |
 |---|---|---|
@@ -171,7 +168,9 @@ while (!kolejka.empty()) {
 
 ### 2.4 `list`
 
-`list` to lista dwukierunkowa. Umożliwia wydajne operacje na końcach oraz wstawianie/usuwanie w dowolnym miejscu przez iterator.
+Więcej operacji udostępnia `list` - lista dwukierunkowa. Można wstawiać, oglądać i usuwać elementy z końców. Ponadto można listę przeglądać, zarówno od początku do końca, jak i przeciwnie. Co więcej (i to jest kluczowa własność listy), można usunąć element z dowolnego miejsca, jak również wstawić element w dowolne miejsce, pod warunkiem posiadania pod ręką odpowiedniego wskaźnika.
+
+Taki wskaźnik w STL nazywa się iteratorem i jest dodatkowo wyposażony w instrukcję zwiększania (oraz zmniejszania) odpowiednią dla konkretnej struktury danych. W przypadku listy zwiększenie oznacza przeskok do następnego elementu na liście. Iterator na pierwszy element uzyskuje się wywołując `begin()`, a iterator za ostatni element - wywołując `end()`.
 
 | Operacja | Opis | Złożoność |
 |---|---|---|
@@ -185,7 +184,7 @@ while (!kolejka.empty()) {
 | `erase(i)` | usunięcie wskazanego elementu | `O(1)` |
 | `insert(i, v)` | wstawienie przed wskazany element | `O(1)` |
 
-\* W starszych implementacjach `size()` mogło nie być `O(1)`.
+\* Nie ma gwarancji, że jest to `O(1)` - równie dobrze może być `O(n)`. Zależy to od konkretnej implementacji STL, dlatego lepiej nie zakładać tu stałego czasu.
 
 ```cpp
 #include <list>
@@ -230,7 +229,7 @@ for (it = lista.begin(); it != lista.end(); it++)
 
 ### 2.5 `vector`
 
-`vector` łączy wygodę tablicy i dynamicznego rozmiaru.
+Twór o nazwie `vector` łączy zalety stosu i tablicy. Odpowiada `stack` w sensie dodawania i usuwania elementów, ale pozwala na bezpośrednie odwoływanie się do każdego z nich - tak jak w zwykłej tablicy. Idea implementacyjna jest prosta: tworzymy tablicę, a gdy miejsce się kończy, tworzymy większą i przekopiowujemy elementy.
 
 | Operacja | Opis | Złożoność |
 |---|---|---|
@@ -261,7 +260,7 @@ while (!vec.empty()) {
 
 ### 2.6 `deque`
 
-`deque` (kolejka dwustronna) pozwala na szybkie operacje na obu końcach i dostęp przez indeks.
+Bardziej wyrafinowaną strukturą jest `deque`, która z zewnątrz zachowuje się podobnie jak `vector`, ale pozwala wstawiać i usuwać elementy z obu stron - z końca i z początku. Innymi słowy, jest to kolejka dwustronna, która dodatkowo umożliwia bezpośrednie odwoływanie się do każdego elementu.
 
 | Operacja | Opis | Złożoność |
 |---|---|---|
@@ -297,7 +296,9 @@ while (!deq.empty()) {
 
 ### 2.7 `priority_queue`
 
-`priority_queue` daje szybki dostęp do największego elementu.
+Czasem przydaje się też `priority_queue` - kolejka priorytetowa. Wstawia się do niej elementy, a ona zawsze daje szybki dostęp do elementu największego i umożliwia jego usunięcie.
+
+Możliwe jest także użycie własnego kryterium porównywania (podobnie jak przy sortowaniu), choć wymaga to nieco sprytniejszego opakowania w strukturę. Szczegóły znajdują się w dokumentacji STL.
 
 | Operacja | Opis | Złożoność |
 |---|---|---|
@@ -328,7 +329,9 @@ pq.top(); // -> 3
 
 ### 2.8 `set`
 
-`set` reprezentuje zbiór (bez duplikatów), z operacjami w czasie `O(log n)`.
+Struktura `set` służy do reprezentacji zbioru (powtórzenia elementów redukują się). Elementy można dodawać, usuwać i wyszukiwać. Ponadto można wyszukać pierwszy element o wartości niemniejszej (większej) od podanej. Można też przeglądać `set` w kolejności od najmniejszej wartości do największej.
+
+Dla bardziej dociekliwych: `set` jest zwykle zaimplementowany przy użyciu drzew czerwono-czarnych.
 
 | Operacja | Opis | Złożoność |
 |---|---|---|
@@ -340,7 +343,7 @@ pq.top(); // -> 3
 | `lower_bound(v)` | pierwszy element niemniejszy | `O(log n)` |
 | `upper_bound(v)` | pierwszy element większy | `O(log n)` |
 
-Jeśli element nie istnieje, `find(v)` zwraca `s.end()`.
+Jeżeli element nie występuje w zbiorze, `find(v)` zwróci iterator `s.end()`. W przeciwnym przypadku będzie to iterator na znaleziony element.
 
 ```cpp
 #include <set>
@@ -378,7 +381,9 @@ it = s.find(111);
 
 ### 2.9 `map`
 
-`map` reprezentuje przyporządkowanie klucz -> wartość.
+Struktura `map` służy do reprezentacji przyporządkowania.
+
+Działa prawie jak `set<pair<x, y>>` z tą różnicą, że elementy porównywane są tylko względem pierwszej wartości (klucza) z pary. Dodatkowo elementy można wstawiać i odwoływać się do nich przy użyciu operatora `[]`. Tu wyjątkowo `k` oznacza klucz, a `v` wartość przyporządkowaną.
 
 | Operacja | Opis | Złożoność |
 |---|---|---|
@@ -433,9 +438,11 @@ m[0]; // -> 2.2f
 Przez „ciąg” rozumiemy strukturę umożliwiającą bezpośredni dostęp do elementów (np. tablica, `vector`).  
 W złożonościach litera `n` oznacza długość ciągu.
 
+Poniższe opisy mają charakter wprowadzający i są świadomie skrócone względem pełnej dokumentacji STL. Warto pamiętać, że część funkcji przyjmuje opcjonalnie własne kryteria porównywania, które muszą być poprawnie zdefiniowane (tj. opisywać sensowny porządek).
+
 ### 3.1 `swap` (złożoność: `O(1)`)
 
-Funkcja `swap` zamienia wartości dwóch zmiennych.
+Funkcja `swap` powoduje, że dwie zmienne wymieniają się wartościami. W praktyce to wygodniejsza i czytelniejsza alternatywa dla ręcznego „przekładania” przez zmienną pomocniczą.
 
 ```cpp
 #include <algorithm>
@@ -449,7 +456,7 @@ b; // -> 123
 
 ### 3.2 `min` (złożoność: `O(1)`)
 
-Funkcja `min` zwraca mniejszą (dokładniej: niewiększą) z dwóch wartości.
+Funkcja `min` zwraca mniejszą (dokładniej: niewiększą) z dwóch wartości. Co istotne, zwracana jest referencja do wybranej wartości, co bywa bardzo wygodne przy dalszych modyfikacjach.
 
 ```cpp
 #include <algorithm>
@@ -465,11 +472,11 @@ b; // -> 13
 ### 3.3 `max` (złożoność: `O(1)`)
 
 Funkcja `max` zwraca większą (dokładniej: niemniejszą) z dwóch wartości.  
-Analogicznie do `min`.
+Podobnie jak przy `min`, operacja jest stałoczasowa i opiera się na porównaniu dwóch argumentów.
 
 ### 3.4 `sort` (złożoność: `O(n log n)`)
 
-Funkcja `sort` sortuje ciąg. Można podać własną funkcję porównującą.
+Funkcja `sort` sortuje ciąg w porządku niemalejącym, a po podaniu własnej funkcji porównującej - według zadanego kryterium. To jedna z najczęściej używanych funkcji STL i warto pamiętać, że działa na zakresach wskazanych przez iteratory.
 
 ```cpp
 #include <algorithm>
@@ -502,16 +509,16 @@ for (int i = 0; i < (int)vec.size(); i++)
 	vec[i]; // -> {1, 2, 3, 4, 5, 6, 7}
 ```
 
-Uwaga: funkcja porównująca musi opisywać poprawny porządek.
+Uwaga: funkcja porównująca nie może być zupełnie dowolna - powinna odpowiadać poprawnemu porządkowi. W przeciwnym razie wynik sortowania może być niepoprawny.
 
 ### 3.5 `stable_sort` (złożoność: `O(n log n)`)
 
-`stable_sort` działa podobnie do `sort`, ale zachowuje kolejność elementów równych względem klucza porównania.
+`stable_sort` działa podobnie do `sort`, ale jest sortowaniem stabilnym - zachowuje wzajemną kolejność elementów równych względem kryterium porównywania. Ma to znaczenie zwłaszcza przy sortowaniu wielokryterialnym (np. najpierw po jednej cesze, potem po drugiej).
 
 ### 3.6 `nth_element` (złożoność: `O(n)`)
 
-`nth_element` ustawia taki element na pozycji `n`, jaki byłby tam po pełnym sortowaniu.  
-Elementy po lewej są nie większe od elementu `n`, a po prawej nie mniejsze.
+`nth_element` przestawia elementy ciągu tak, by na wskazanej pozycji znalazł się dokładnie taki element, jaki stałby tam po pełnym sortowaniu.  
+Dodatkowo każdy element po lewej stronie tej pozycji jest nie większy od elementu wybranego, a każdy po prawej - nie mniejszy. Dzięki temu można np. efektywnie wyznaczać medianę bez pełnego sortowania całego ciągu.
 
 ```cpp
 #include <algorithm>
@@ -525,7 +532,7 @@ liczby[(n - 1) / 2]; // -> 5
 
 ### 3.7 `reverse` (złożoność: `O(n)`)
 
-`reverse` odwraca kolejność elementów ciągu.
+`reverse` odwraca kolejność elementów ciągu, czyli zamienia pierwszy z ostatnim, drugi z przedostatnim itd. Funkcja działa w miejscu, bez potrzeby tworzenia dodatkowej kopii danych.
 
 ```cpp
 #include <algorithm>
@@ -542,7 +549,7 @@ reverse(vec.begin(), vec.end());
 
 ### 3.8 `next_permutation` (złożoność: `O(n)`)
 
-`next_permutation` wyznacza następną leksykograficznie permutację i zwraca `true`, jeśli istnieje.
+`next_permutation` przekształca ciąg w jego następną leksykograficznie permutację i zwraca `true`, jeśli taka permutacja istnieje. Gdy funkcja zwraca `false`, oznacza to, że osiągnięto największą leksykograficznie permutację (ciąg nierosnący). Z tego wynika, że przegląd wszystkich permutacji warto zaczynać od ciągu posortowanego niemalejąco.
 
 ```cpp
 #include <algorithm>
@@ -569,7 +576,7 @@ do {
 
 ### 3.9 `random_shuffle` (złożoność: `O(n)`)
 
-`random_shuffle` tasuje elementy losowo.
+`random_shuffle` ustawia elementy ciągu w losowej kolejności. To wygodny sposób na szybkie „przetasowanie” danych, np. przed losowym testowaniem algorytmu.
 
 ```cpp
 #include <algorithm>
